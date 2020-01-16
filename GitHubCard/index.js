@@ -53,3 +53,19 @@ const followersArray = [];
   luishrd
   bigknell
 */
+function createCard(userInfo, ){
+  const cardInfo = document.createElement('div')
+  
+
+}
+
+
+
+const a = axios.get('https://api.github.com/users/naj10000')
+.then(response => {
+ 
+  console.log(response);
+})
+.catch( error => {
+  // console.log("the data was not returned", error)
+})
