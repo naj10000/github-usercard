@@ -53,19 +53,64 @@ const followersArray = [];
   luishrd
   bigknell
 */
-function createCard(userInfo, ){
-  const cardInfo = document.createElement('div')
-  
-
-}
-
 
 
 const a = axios.get('https://api.github.com/users/naj10000')
 .then(response => {
- 
+  
+    cards.appendChild(createCard(response.data))
+
   console.log(response);
 })
 .catch( error => {
   // console.log("the data was not returned", error)
 })
+
+
+function createCard(userInfo ){
+  const card = document.createElement('div')
+  const cardInfo = document.createElement('div');
+  const  userImg = document.createElement('img')
+    const name = document.createElement('h3')
+     const  userName = document.createElement('p')
+     const  location = document.createElement('p')
+     const  profile = document.createElement('p')
+     const  followers = document.createElement('p')
+     const  following = document.createElement('p')
+     const  proBio = document.createElement('p')
+     const  link = document.createElement('a')
+     
+     card.appendChild(cardInfo)
+     card.appendChild(userImg)
+     cardInfo.appendChild(name)
+     cardInfo.appendChild(userName)
+     cardInfo.appendChild(location)
+     cardInfo.appendChild(profile)
+     cardInfo.appendChild(followers)
+     cardInfo.appendChild(following)
+     cardInfo.appendChild(proBio)
+     profile.appendChild(link)
+      
+     card.classList.add('card')
+     cardInfo.classList.add('card-info')
+      name.classList.add('name')
+     userName.classList.add('username')
+
+     name.textContent = "Nyjae Lee"
+     userName.textContent = userInfo.login
+     userImg.src = userInfo.avatar_url
+     location.textContent = userInfo.location
+     link.href = userInfo.url
+     followers.textContent = "3"
+     following.textContent = "4"
+     proBio.textContent = userInfo.bio
+
+
+
+   return card
+
+  
+
+}
+const cards = document.querySelector(".cards")
+
