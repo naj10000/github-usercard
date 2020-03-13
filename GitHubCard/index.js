@@ -26,6 +26,10 @@
 
 const followersArray = ["Devin", 'Brandi', 'Erik'];
 
+const userName1 = followersArray.forEach((item, index) =>{
+  return (item, index)
+})
+
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
 
@@ -53,7 +57,7 @@ const followersArray = ["Devin", 'Brandi', 'Erik'];
   luishrd
   bigknell
 */
-
+ /// axios calls
 
 const a = axios.get('https://api.github.com/users/naj10000')
 .then(response => {
@@ -78,6 +82,8 @@ const b = axios.get('https://api.github.com/users/naj10000/followers')
 .catch( error => {
   // console.log("the data was not returned", error)
 })
+
+///cardComponent
 
 
 function createCard(userInfo ){
@@ -110,13 +116,13 @@ function createCard(userInfo ){
      userName.classList.add('username')
 
      name.textContent = userInfo.login
-     userName.textContent = userInfo.login
+     userName.textContent = userName1 
      userImg.src = userInfo.avatar_url
      location.textContent = userInfo.location
      link.href = userInfo.url
      followers.textContent = `Followers: ${userInfo.followers}`
      following.textContent = `Following: ${userInfo.following}`
-     proBio.textContent = userInfo.bio
+     proBio.textContent = `Bio: ${userInfo.bio}`
 
 
 
